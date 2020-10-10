@@ -20,7 +20,7 @@
     --font-regular: 'DM Sans';
     --font-bold: 'DM Sans Bold';
 }
-
+* {margin: 0; padding: 0;}
 body {
     font-family: var(--font-regular), 'Poppins', sans-serif;
     /*padding: 0px;*/
@@ -598,7 +598,11 @@ button:focus {
     }
     #navigation {
         display: flex !important;
+        justify-content: center;
         padding-top: 0 !important;
+    }
+    #navigation > * {
+        margin-left: 0 !important;
     }
     #caption {
         font-size: 16px;
@@ -649,7 +653,7 @@ button:focus {
         padding:6px 30px;
         font-size: 1em;
         /*width:60%;*/
-        margin: auto;
+        margin: 30px auto 0 auto;
         box-shadow:0px 10px 20px rgba(var(--primary-overlay), 0.8);
         background: var(--primary-color);
         color:#fff;
@@ -709,9 +713,9 @@ button:focus {
         width:33%;
     }
     header {
-        width:96vw;
+        width:100%;
         background:#fff;
-        padding: 10px;
+        padding: 10px 0;
         /*position:absolute;*/
         top: 0px;
     }

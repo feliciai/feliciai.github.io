@@ -34,6 +34,7 @@ window.onscroll = function(){
         if(document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
             $("#logo").css("display","none");
             $("#navigation").css("padding-bottom","0");
+            $("#logo").removeClass("animated slideInDown");
         }
         else {
             $("#logo").addClass("animated slideInDown");
