@@ -30,9 +30,20 @@ window.onscroll = function(){
             
         }
     }
+    else {
+        if(document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+            $("#logo").css("display","none");
+            $("#navigation").css("padding-bottom","0");
+        }
+        else {
+            $("#logo").addClass("animated slideInDown");
+            $("#logo").css("display","block");
+            $("#navigation").css("padding-bottom","15px");
+        }
+    }
 }
 $(document).ready( function() {
-    if (width > 1000) {
+    if (width >= 1000) {
         init();
         animate();
     }

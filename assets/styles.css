@@ -586,6 +586,20 @@ button:focus {
     #photos img {
         margin:2% 0px;
     }
+    h1, #about h1 {
+        font-size: 1.4em;
+    }
+    p {
+        font-size: 12px;
+    }
+    header table {
+        width: 100%;
+        font-size: 12px;
+    }
+    #navigation {
+        display: flex !important;
+        padding-top: 0 !important;
+    }
     #caption {
         font-size: 16px;
     }
@@ -629,9 +643,11 @@ button:focus {
     }
     .project form {
         align-items: center;
+        font-size: 12px;
     }
     .btn_one {
         padding:6px 30px;
+        font-size: 1em;
         /*width:60%;*/
         margin: auto;
         box-shadow:0px 10px 20px rgba(var(--primary-overlay), 0.8);
@@ -651,7 +667,7 @@ button:focus {
         box-shadow:0px 10px 40px rgba(var(--secondary-overlay), 0.8);
     }
     .btn_inactive, .btn_inactive:hover {
-        background-color: rgba(var(--inactive-overlay), 0.5);
+        background-color: rgba(var(--inactive-overlay), 1);
         border: 3px solid var(--inactive-color);
         box-shadow: none;
         color: var(--outline-color);
@@ -673,7 +689,7 @@ button:focus {
         width:19%;
     }
     .project {
-        margin-top: 3em;
+        margin-top: 0em;
     }
     .projectDesc {
         text-align: left;
@@ -703,7 +719,7 @@ button:focus {
         width:100%;
         display:block;
         text-align:center;
-        padding:15px 0px;
+        padding: 15px 0px; /* also manipulated in js upon scroll up*/
     }
     #navigation a {
         color:#000;
