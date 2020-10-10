@@ -9,37 +9,42 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
 <body>
     <div id="loading">
         <div id="spinner"></div>
     </div>
-    <div id="magnify">
+    <div id="magnify" onclick="closemagnify()">
         <h1 onclick="closemagnify()"><i class="fas fa-times"></i></h1>
         <div id="img_here"></div>
+        <p id="caption"></p>
     </div>
+    <canvas>
+    </canvas>
     <header id="header" class="animated slideInDown" style="animation-delay:1.8s;">
-        <table>
-            <tr>
-                <td id="logo">felicia.i</td>
-                <td id="navigation">
-                    <a href="#work">work</a>
-                    <a href="#bio">about</a>
-                    <a href="#contact">contact</a>
-                </td>
-            </tr>
-        </table>
-    </header>
-    <table id="top_part">
-        <tr>
-            <td id="about" class="animated slideInLeft" style="animation-delay:2s;">
+            <table>
+                <tr>
+                    <td id="logo">felicia.i</td>
+                    <td id="navigation">
+                        <a href="#work">work</a>
+                        <a href="#gallery">gallery</a>
+                        <a href="#bio">about</a>
+                        <a href="#contact">contact</a>
+                    </td>
+                </tr>
+            </table>
+        </header>
+    <div id="wrapper">
+        <div id="top_part">
+            <div id="about" class="animated slideInLeft" style="animation-delay:2s;">
                 <h1>Hello! I'm Felicia. <br> Nice to meet you!</h1>
-                <p>I'm a 4th-year Computer Science and Statistics student at Texas A&M University, minoring in Art and Game Design. I currently do UX at the <a href="https://acelab.tamu.edu/projects-current/" target="_blank">ACE Research Lab</a>, and am a design director for <a href="http://tamudatathon.com" target="_blank">TAMU Datathon 2020!</a></p>
-                
+                <p>I'm a 4th-year Computer Science and Statistics student at Texas A&M University, minoring in Art and Game Design. I currently do UI/UX at the <a href="https://acelab.tamu.edu/projects-current/" target="_blank">ACE Research Lab</a>, and am a design director for <a href="http://tamudatathon.com" target="_blank">TAMU Datathon 2020</a>!</p>
+
                 <form action="https://www.linkedin.com/in/felicia-i/" method="get" target="_blank">
-                    <button class="btn_one" type="submit"><i class="fab fa-linkedin-in"></i> Let's Connect!</button><br>
+                    <button class="btn_one alt" type="submit"><i class="fab fa-linkedin-in"></i> &thinsp; Let's Connect!</button><br>
                 </form>
-                
+
                 <!-- SM Links 
                 <table>
                     <tr>
@@ -50,79 +55,158 @@
                         <td class="animated zoomIn" style="animation-delay:3.0s;"><a class="social"><i class="fab fa-medium"></i></a></td>
                     </tr>
                 </table> -->
-                
-            </td>
-            <td id="rightImage" class="animated jackInTheBox" style="animation-delay:2.2s;"></td>
-        </tr>
-    </table>
-    <div id="work">
-        <h1>work</h1>
-        <div id="photos">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1547922657-b370d1687eb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1549375463-8cbc18ca3f24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1549309019-a1d77aeae74f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1547149666-769b42053e67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1547950515-e652d0f50b1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1545342084-d03fe58ea023?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80">
+
+            </div>
+            <div id="rightImage" class="animated jackInTheBox" style="animation-delay:2.2s;"><img src="assets/Avatar_Large.png" /></div>
         </div>
-    </div>
-    <div id="bio">
-        <h1>about</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-    </div>
-    <div id="contact">
-        <h1>contact</h1>
-            <table>
-                <tr>
-                    <td>
-                        <div id="inner_div">
-                            <table id="inner_table">
-                                <tr>
-                                    <td><i class="fas fa-at"></i> &nbsp; finvedy@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fas fa-at"></i> &nbsp; finvedy@tamu.edu</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://github.tamu.edu/finvedy" target="_blank"><i class="fab fa-github-alt"></i> &nbsp; github</a></td>
-                                </tr>
-                                
-                                <!-- SM Links
-                                <tr>
-                                    <td>
-                                        <a class="social"><i class="fab fa-facebook"></i></a>
-                                        <a class="social"><i class="fab fa-twitter"></i></a>
-                                        <a class="social"><i class="fab fa-instagram"></i></a>
-                                        <a class="social"><i class="fab fa-dribbble"></i></a>
-                                        <a class="social"><i class="fab fa-medium"></i></a>
-                                    </td>
-                                </tr> -->
-                                
-                            </table>
+        <div id="work">
+            <h1>work</h1>
+            <div id="hypercoach" class="project">
+                <div class="animated slideInLeft fadeIn projectDesc" style="animation-delay:2s;">
+                    <h1>Hypercoach</h1>
+                    <p class="subtle-subtitle">May 2020 – June 2020 • ACE Lab</p>
+                    <p>An internal app for research purposes to conduct a 30-day study on hypertensive patients. The app guides them along the study with simple and minimal features which educate the user on hypertension and allow the user to view and track related health data.</p>
+
+                    <form action="" method="get" target="_blank">
+                        <button class="btn_one btn_inactive" type="submit"><i class="fas fa-swatchbook"></i> &thinsp; View Design Summary</button>
+                        Check back soon!
+                    </form>
+                </div>
+                <div class="animated fadeIn projectImage" style="animation-delay:2.2s;">
+                    <div class="carousel-nav">
+                        <a href="#hypercoach-img" class="carousel-tab carousel-tab-active">Image</a>
+                        <a href="#hypercoach-fig" class="carousel-tab">Figma Preview</a>
+                    </div>
+                    <div class="carousel">
+                        <div class="carousel-item"><span id="hypercoach-img" style=""></span>
+                            
+                            <div class="device-container" width="100%">
+                                <div class="device" style="background-color: #efeff4">
+                                    <img src="assets/projects/hypercoach/Hypercoach_Home.png" />
+                                </div>
+                            </div>
+                            <!--<img src="assets/projects/hypercoach/AppPreview_Hypercoach_Home.png" />-->
                         </div>
-                    </td>
-                    <td>
-                    
-                        <!-- Form
-                        <form>
-                            <input type="text" placeholder="name" required>
-                            <input type="email" placeholder="email" required><br>
-                            <textarea placeholder="your message" required rows="5"></textarea><br>
-                            <button class="btn_one">send</button>
-                        </form>  -->
-                        
-                    </td>
-                </tr>
-            </table>
-    </div>
-    <div id="footer">
+                        <div class="carousel-item" >
+                            <iframe style="" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9UcO9fVG7jSHF36QweaGQq%2FUntitled%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+                            <span id="hypercoach-fig" style=""></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="kleberg" class="project alt">
+                <div class="animated slideInLeft projectDesc" style="animation-delay:2s;">
+                    <h1>Kleberg</h1>
+                    <p class="subtle-subtitle">August 2020 – Current • ACE Lab</p>
+                    <p>A diabetes management app for underserved communities with limited health resources. The app lets users track blood glucose, food intake, exercise, weight, and medication through in-the-works wireless technology that will be provided to patients.</p>
+
+                    <form action="" method="get" target="_blank">
+                        <button class="btn_one btn_inactive" type="submit"><i class="fas fa-swatchbook"></i> &thinsp; View Design Summary</button>
+                        Work in progress – check back soon!
+                    </form>
+                </div>
+                <div class="animated fadeIn projectImage" style="animation-delay:2.2s;">
+                    <div class="carousel-nav ">
+                        <a href="#kleberg-img" class="carousel-tab carousel-tab-active">Image</a>
+                        <a href="#kleberg-fig" class="carousel-tab carousel-tab-inactive">Figma Preview</a>
+                    </div>
+                    <div class="carousel">
+                        <div class="carousel-item"><span id="kleberg-img" style=""></span>
+                            <div class="device-container" width="100%">
+                                <div class="device" style="background-color: #efeff4; box-sizing: border-box; padding-top: 40px; padding-bottom: 40px;">
+                                    <img src="assets/projects/kleberg/Kleberg_Home.png" style="border-radius: 3px;"/>
+                                </div>
+                            </div>
+                            <!--<img src="assets/projects/hypercoach/AppPreview_Hypercoach_Home.png" />-->
+                        </div>
+                        <!--<div class="carousel-item" >
+                            <iframe style="" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F9UcO9fVG7jSHF36QweaGQq%2FUntitled%3Fnode-id%3D0%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+                            <span id="kleberg-fig" style=""></span>
+                        </div>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="gallery">
+            <h1>gallery</h1>
+            <div id="photos">
+                <img onclick="magnify($(this).attr('src'), $(this).attr('caption'))" src="/assets/gallery/Bargue_1.jpg"
+                     caption="Bargue charcoal practice. 18&quot; x 24&quot;">
+                <img onclick="magnify($(this).attr('src'), $(this).attr('caption'))" src="/assets/gallery/Bargue_2.jpg"
+                     caption="Bargue charcoal practice. 18&quot; x 24&quot;">
+                <img onclick="magnify($(this).attr('src'), $(this).attr('caption'))" src="/assets/gallery/CharcoalSketch_2.jpg"
+                     caption="Charcoal practice. 12&quot; x 9&quot;">
+                <img onclick="magnify($(this).attr('src'), $(this).attr('caption'))" src="/assets/gallery/InkSketch_2.jpg"
+                     caption="Ink practice. 9&quot; x 12&quot;">
+                <img onclick="magnify($(this).attr('src'), $(this).attr('caption'))" src="/assets/gallery/Jenova_2.png"
+                     caption="Digital portrait fanart using iPad/Procreate">
+                <img onclick="magnify($(this).attr('src'), $(this).attr('caption'))" src="/assets/gallery/CharacterSketch_1.png"
+                     caption="Basic character concept using iPad/Procreate">
+                <img onclick="magnify($(this).attr('src'), $(this).attr('caption'))" src="/assets/gallery/MikotobaSusato.png"
+                     caption="Digital portrait fanart using iPad/Procreate">
+                <img onclick="magnify($(this).attr('src'), $(this).attr('caption'))" src="/assets/gallery/HighwaySceneProgress.png"
+                     caption="(Originally parallax) background made in Photoshop for my first (failed 😛) game">
+            </div>
+        </div>
+        <div id="bio">
+            <h1>about</h1>
+            <p>
+                Hello! My name is Felicia Invedy, and I'm currently a fourth-year Computer Science and Statistics student at Texas A&M University from Sugar Land, TX! I'm also pursuing minors in Art (New Media) and Game Design & Development. Some topics of or relating to computer science that interest me include HCI (UI/UX), computer graphics, game development, and data visualization.
+            </p>
+            <p>
+                I'm a UI/UX designer for <a href="https://acelab.tamu.edu/projects-current/" target="_blank">ACE Labs</a> here at A&M and a design director for <a href="http://tamudatathon.com" target="_blank">TAMU Datathon 2020</a>! I'm also the design officer for both <a href="https://awics.org" target="_blank">Aggie Women in Computer Science (AWiCS)</a> and <a href="tidalwaive.com" target="_blank">tidaltamu (Tethered Informatics Data Analytics Lab)</a>.
+            </p>
+            <p>
+                In my free time, I love drawing, designing, and playing video games! I listen to classical music and video game scores, and am also involved in the university orchestra as a cellist.
+            </p>
+        </div>
+        <div id="contact">
+            <h1>contact</h1>
+                <table>
+                    <tr>
+                        <td>
+                            <div id="inner_div">
+                                <table id="inner_table">
+                                    <tr>
+                                        <td><i class="fas fa-at"></i><a href="mailto:finvedy@gmail.com" target="_blank"> &nbsp; finvedy@gmail.com</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fab fa-github-alt"></i><a href="https://github.tamu.edu/finvedy" target="_blank"> &nbsp; github</a></td>
+                                    </tr>
+
+                                    <!-- SM Links
+                                    <tr>
+                                        <td>
+                                            <a class="social"><i class="fab fa-facebook"></i></a>
+                                            <a class="social"><i class="fab fa-twitter"></i></a>
+                                            <a class="social"><i class="fab fa-instagram"></i></a>
+                                            <a class="social"><i class="fab fa-dribbble"></i></a>
+                                            <a class="social"><i class="fab fa-medium"></i></a>
+                                        </td>
+                                    </tr> -->
+
+                                </table>
+                            </div>
+                        </td>
+                        <td>
+
+                            <!-- Form
+                            <form>
+                                <input type="text" placeholder="name" required>
+                                <input type="email" placeholder="email" required><br>
+                                <textarea placeholder="your message" required rows="5"></textarea><br>
+                                <button class="btn_one">send</button>
+                            </form>  -->
+
+                        </td>
+                    </tr>
+                </table>
+        </div>
+        <div id="footer">
         have a great day! <br> <a href="https://www.linkedin.com/in/felicia-i/"><i class="far fa-grin-beam"></i></a>
+    </div>
     </div>
     <script src="script.js" type="text/javascript"></script>
 </body>
