@@ -43,7 +43,7 @@ window.onscroll = function(){
     }
 }
 $(document).ready( function() {
-    if (width >= 1000) {
+    if (width >= 300) {
         init();
         animate();
     }
