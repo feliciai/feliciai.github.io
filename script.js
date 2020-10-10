@@ -27,12 +27,12 @@ window.onscroll = function(){
         }
     }
 }
-window.onload = function() {
+$(document).ready( function() {
     if (width > 1000) {
         init();
         animate();
     }
-}
+})
 function magnify(imglink, caption=""){
     $("#img_here").css("background",`url('${imglink}') center center`);
     $("#magnify").css("display","flex");
