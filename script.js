@@ -23,7 +23,11 @@ window.onscroll = function(){
             });
         }
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            $('canvas').addClass("animated fadeOut");
+            canvas.height = canvas.height + 80;
+            //$('canvas').addClass("animated fadeOut");
+            setTimeout(function() {}, 2000);
+            setTimeout(function() {ballArray = [];}, 4000);
+            
         }
     }
 }
@@ -104,6 +108,8 @@ var colors = [
 var gravity = 0.4;
 var friction = 0.6;
 
+var clickX;
+var clickY;
 
 // Event Listeners
 addEventListener("mousemove", function(event) {
@@ -114,11 +120,13 @@ addEventListener("mousemove", function(event) {
 addEventListener("resize", function() {
 	canvas.width = innerWidth;	
 	canvas.height = innerHeight;
-  init();
+  // init();
 });
 
 addEventListener("click", function(event) {
-	init();
+    clickX = event.clientX;
+    clickY = event.clientY;
+	clickInit();
 });
 
 
@@ -174,11 +182,11 @@ function Ball(x, y, dx, dy, radius, color, gravity, friction) {
 
 // Implementation
 var ballArray = [];
-
+var specialBall = new Ball(canvas.width/2, canvas.height - 5*10, 0, 0, 10, "rgb(115, 190, 225)", 0.05, 1);
 function init() {
 	ballArray = [];
 
-	for (let i = 0; i < 20; i++) {
+	for (let i = 0; i < 10; i++) {
 		var radius = 10;//randomIntFromRange(8, 20);
 		var x = gaussianRandom(radius, canvas.width - radius);//randomIntFromRange(radius, canvas.width - radius);
 		var y = randomIntFromRange(0, canvas.height - radius);
@@ -188,7 +196,25 @@ function init() {
 	}
     
     // special
-    ballArray.push(new Ball(canvas.width/2, canvas.height - 5*10, 0, 0, 10, "rgb(115, 190, 225)", 0.05, 1));
+    ballArray.push(specialBall);
+}
+
+function clickInit() {
+    ballArray = [];
+
+	for (let i = 0; i < 3; i++) {
+		var radius = 10;//randomIntFromRange(8, 20);
+		var x = randomIntFromRange(clickX - 3, clickX + 3);
+		var y = randomIntFromRange(clickY - 3, clickY + 3);
+		var dx = randomIntFromRange(-3, 3)
+		var dy = randomIntFromRange(-2, 2)
+	    ballArray.push(new Ball(x, y, dx, dy, radius, randomColor(colors), gravity, friction));
+	}
+    
+    // if not yet scrolled
+    if (canvas.height == innerHeight) {
+        ballArray.push(specialBall);
+    }
 }
 
 // Animation Loop
