@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
 :root {
-    --primary-overlay: 115, 190, 225;/*255, 44, 90;*/
+    --primary-overlay: 105, 180, 215;/*255, 44, 90;*/
     --primary-color: rgb(var(--primary-overlay));
     
     --secondary-overlay: 90, 130, 255;
@@ -41,6 +41,7 @@ body {
 p {
     font-family: var(--font-regular), 'Poppins', sans-serif;
     font-size: 18px;
+    padding-top: 1em;
 }
 canvas {
     position: fixed;
@@ -254,6 +255,11 @@ a:hover {
     box-shadow: none;
     color: var(--outline-color);
 }
+
+.subtle-subtitle {
+    color: var(--outline-color);
+}
+
 .project form {
     display: flex;
     color: var(--outline-color);
@@ -400,20 +406,20 @@ a:hover {
     border-bottom: 4px solid var(--primary-color);
     width: 9%; /* underline width */
 }
-#photos {
+.photos {
     width:100%;
     columns:4;
     column-gap:4%;
     z-index:1;
     transition:0.4s ease-in-out;
 }
-#photos img {
+.photos img {
     width:100%;
     height:auto;
     margin:4.5% 0px;
     transition:0.4s ease-in-out;
 }
-#photos img:hover {
+.photos img:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -581,11 +587,11 @@ button:focus {
     #magnify {
         top: 0px;
     }
-    #photos {
+    .photos {
     columns:1;
     column-gap:0%;
     }
-    #photos img {
+    .photos img {
         margin:2% 0px;
     }
     h1, #about h1 {
@@ -609,7 +615,7 @@ button:focus {
     #caption {
         font-size: 16px;
     }
-    #photos img:hover {
+    .photos img:hover {
         transform: scale(1);
         cursor: pointer;
     }
