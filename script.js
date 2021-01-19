@@ -1,4 +1,25 @@
 var width = $(window).width(); 
+
+window.addEventListener('resize', resized);
+function resized() {
+	if (width < 1000 && $(window).width() >= 1000) {
+		location.reload(); // refresh if width is from "mobile" to full
+		width = $(window).width(); 
+		height = $(window).height(); 
+		return false;
+	}
+	if (width >= 1000 && $(window).width() < 1000) {
+		location.reload(); // refresh if width is from full to "mobile"
+		width = $(window).width(); 
+		height = $(window).height(); 
+		return false;
+	}
+	if (canvas) { // no bouncy balls on resize
+		$("canvas").css("visibility","hidden");
+	}
+	return false;
+}
+
 window.onscroll = function(){
     if ((width >= 1000)){
         if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
@@ -22,7 +43,7 @@ window.onscroll = function(){
                 $(this).css("border-bottom","2px solid transparent");
             });
         }
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 && canvas) { //(&& canvas)
             canvas.height = canvas.height + 80;
             //$('canvas').addClass("animated fadeOut");
             setTimeout(function() {}, 2000);
@@ -43,12 +64,18 @@ window.onscroll = function(){
         }
     }
 }
+
 $(document).ready( function() {
     if (width >= 1000) {
         init();
         animate();
     }
+		console.log(height);
+	if (height >= 1000) {
+        $("canvas").css("display","none");
+	}
 })
+
 function magnify(imglink, caption=""){
     $("#img_here").css("background",`url('${imglink}') center center`);
     $("#magnify").css("display","flex");
@@ -198,7 +225,7 @@ var specialBall = new Ball(canvas.width/2, canvas.height - 5*10, 0, 0, 10, "rgb(
 function init() {
 	ballArray = [];
 
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < 5; i++) {
 		var radius = 10;//randomIntFromRange(8, 20);
 		var x = gaussianRandom(radius, canvas.width - radius);//randomIntFromRange(radius, canvas.width - radius);
 		var y = randomIntFromRange(0, canvas.height - radius);

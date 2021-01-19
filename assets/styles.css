@@ -1,5 +1,5 @@
 /* site templated from https://imfunniee.github.io/
-   and adapted by Felicia Invedy 2020
+   and adapted by Felicia Invedy 2021
 */
 
 @import url('https://fonts.googleapis.com/css?family=Poppins');
@@ -14,7 +14,7 @@
     
     --inactive-overlay: 239, 239, 244;
     --inactive-color: rgba(var(--inactive-overlay), 1);
-    --outline-color: rgba(140, 140, 155, 0.6);
+    --outline-color: rgba(140, 140, 155, 0.75);
     --overlay-opacity: 0.4;
     
     --font-regular: 'DM Sans';
@@ -37,6 +37,7 @@ body {
     
     width: 100vw;
     max-width: 1596px;
+	padding-top: 10em;
 }
 p {
     font-family: var(--font-regular), 'Poppins', sans-serif;
@@ -46,6 +47,7 @@ p {
 canvas {
     position: fixed;
     pointer-events: none;
+	z-index: 5;
 }
 #loading {
     width: 100vw;
@@ -151,9 +153,13 @@ header table {
 #top_part {
     display: flex;
     width: 100%;
+	height: auto;
+	max-height: 798px;
     border:2vh solid #fff;
     align-content: center;
     align-items: center;
+	justify-content: space-between;
+	/*margin-top: 10em;*/
 }
 .project {
     display: flex;
@@ -179,12 +185,12 @@ header table {
 
 #about {
     width:84% !important;
-    height:95vh;
+    /*height:95vh;*/
     display:flex;
     flex-direction:column;
     justify-content:center;
     text-align:left;
-    padding:0px 8%;
+    padding:0px 4%;
 }
 #about h1 {
     font-size:48px;
@@ -204,6 +210,27 @@ a, a:visited {
 }
 a:hover {
     color: var(--secondary-color);
+}
+.alt a, .alt a:visited {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.alt a:hover {
+    color: var(--primary-color);
+}
+.half-section {
+	width: 48%;
+}
+
+.half-section .thumb { /* thumbnail img */
+	max-height: 250px;
+	border-radius: 15px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.thumb img {
+	width: 100%;
 }
 .social {
     color: var(--primary-color);
@@ -235,7 +262,7 @@ a:hover {
     transition: 0.4s ease-in-out;
     align-self: flex-start;
 }
-.btn_one.alt {
+.alt .btn_one {
     color: var(--secondary-color);
     border: 3px solid var(--secondary-color);   
 }
@@ -245,7 +272,7 @@ a:hover {
     color: #fff;
     background: var(--primary-color);
 }
-.btn_one.alt:hover {
+.alt .btn_one:hover {
     box-shadow: 0px 10px 25px rgba(var(--secondary-overlay), var(--overlay-opacity));
     background: var(--secondary-color); 
 }
@@ -254,6 +281,7 @@ a:hover {
     border: 3px solid var(--inactive-color);
     box-shadow: none;
     color: var(--outline-color);
+	cursor: default;
 }
 
 .subtle-subtitle {
@@ -272,16 +300,19 @@ a:hover {
 }
 #rightImage {
     width: 100%;
-    height: 95vh;
+    height: 48%;
+	max-height:498px;
     /*background: linear-gradient(0deg,rgba(255, 44, 90, 0.0),rgba(2255, 44, 90, 0.0)),url("Avatar_Large.png") center center;
     background-size: contain;
     background-repeat: no-repeat;*/
     display: flex;
     align-items: center;
+	overflow: hidden;
 }
 #rightImage img {
     display: block;
-    height: 50%;
+    height: 48%;
+	max-height: 498px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -396,6 +427,19 @@ a:hover {
     border-bottom: 4px solid var(--primary-color);
     width: 7%; /* underline width */
 }
+.work {
+	display: flex;
+    position: relative;
+    left: -4%;
+    width: 108%;
+    border:0vh solid #ff0;
+    align-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 2em;
+    padding:30px 4% 0 4%;
+	justify-content: space-between;
+}
 #gallery {
     width: 92%; /*width: 92vw;*/
     padding: 6vh 4vw;
@@ -422,6 +466,37 @@ a:hover {
 .photos img:hover {
     transform: scale(1.1);
     cursor: pointer;
+}
+#cv { 
+    width: 92%; /*width:92vw;*/
+    padding:4vh 4vw;
+}
+#cv > h1 {
+    padding:5px 0px;
+    border-bottom:4px solid var(--primary-color);
+    font-weight:bold;
+    width:14%; /* underline width */
+}
+#cv h3 {
+	color: var(--secondary-color);
+}
+.cv {
+	display: flex;
+    position: relative;
+    left: -4%;
+    width: 108%;
+    border:0vh solid #ff0;
+    align-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+    border-radius: 2em;
+    padding:30px 4% 0 4%;
+	justify-content: space-between;
+}
+.resume-section {
+	margin-bottom: 2.5em;
+	border-left: 3px solid rgba(var(--secondary-overlay), 0.2);
+	padding-left: 0.8em;
 }
 #bio {
     width: 92%; /*width:92vw;*/
@@ -503,7 +578,7 @@ a:hover {
 }
 #footer {
     width:100%;
-    padding:10vh 0px;
+    padding:6vh 0px;
     text-align:center;
     font-weight:bold;
 }
@@ -634,9 +709,13 @@ button:focus {
         margin-top: 145px;
     }
     #top_part > *, .project > * {
-        width:100%;
+        width: 50%;
         text-align:center;
     }
+	.half-section {
+		width: 100%;
+		margin: 2em auto;
+	}
     #about {
         width:92% !important;
         /*height: 45vh;*/
@@ -670,12 +749,12 @@ button:focus {
         box-shadow:0px 10px 40px rgba(var(--primary-overlay), 0.8);
         cursor:pointer;
     }
-    .alt.btn_one {
+    .alt .btn_one {
         box-shadow:0px 10px 20px rgba(var(--secondary-overlay), 0.8);
         background: var(--secondary-color);
         color:#fff;
     }
-    .alt.btn_one:hover {
+    .alt .btn_one:hover {
         box-shadow:0px 10px 40px rgba(var(--secondary-overlay), 0.8);
     }
     .btn_inactive, .btn_inactive:hover {
@@ -683,6 +762,7 @@ button:focus {
         border: 3px solid var(--inactive-color);
         box-shadow: none;
         color: var(--outline-color);
+		cursor: default;
     }
     #contact table tr td {
         width: 100%;
@@ -711,6 +791,9 @@ button:focus {
     .carousel span {
         margin-top: -9em;
     }
+	.cv {
+		flex-flow: column;
+	}
     #gallery > h1 {
         width:25%;
     }
