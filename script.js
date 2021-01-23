@@ -118,7 +118,8 @@ $(document).ready(function(){
 });
 
 $(".carousel-tab").click(function() {
-    if ($('.carousel-tab').hasClass('carousel-tab-inactive')) {
+    if (!$('.carousel-tab').hasClass('.carousel-tab-active')) {
+		console.log("HAS BEEN");
         $(this).addClass("carousel-tab-active").siblings().removeClass("carousel-tab-active");
     }
 });

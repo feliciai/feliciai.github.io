@@ -661,6 +661,47 @@ button:focus {
     border-radius: 18px;
 }
 
+.desktop {
+  overflow: hidden;
+  height: 68%;
+  min-width: 100px;
+  padding: 0.6rem;
+  border-radius: 25px;
+  box-shadow: 3px 3px 0 0 #bfbfc4, inset 0 0 8px 0 rgba(0, 0, 0, 0.3), 35px 20px 40px -10px rgba(0, 0, 0, 0.23);*/
+  -webkit-transform: rotateX(10deg) rotateY(-10deg) rotateZ(6deg);
+  transform: rotateX(10deg) rotateY(-10deg) rotateZ(6deg);
+  -webkit-transition: box-shadow 400ms ease, -webkit-transform 400ms ease;
+  transition: box-shadow 400ms ease, -webkit-transform 400ms ease;
+  transition: transform 400ms ease, box-shadow 400ms ease;
+  transition: transform 400ms ease, box-shadow 400ms ease, -webkit-transform 400ms ease;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.desktop:hover {
+  box-shadow: 0 1px 0 0 #bfbfc4, inset 0 0 8px 0 rgba(0, 0, 0, 0.3), 0 15px 40px -10px rgba(0, 0, 0, 0.23);*/
+  -webkit-transform: rotate(0deg) scale(1.05);
+  -ms-transform: rotate(0deg) scale(1.05);
+  transform: rotate(0deg) scale(1.05);
+}
+/*.desktop.shadow {
+	margin-top: 48%;
+	background-color: transparent !important;
+	position:absolute;
+	box-shadow: 50px 40px 40px -10px rgba(0, 0, 0, 0.43);
+	z-index: -1;
+	min-width: 66%;
+	height: 30px;
+}
+.desktop:hover ~ .desktop.shadow {
+  box-shadow: 0 40px 40px -10px rgba(0, 0, 0, 0.43);
+  -webkit-transform: rotate(0deg) scale(1.05);
+  -ms-transform: rotate(0deg) scale(1.05);
+  transform: rotate(0deg) scale(1.18);
+}*/
+.desktop img {
+    width: auto;
+    border-radius: 18px;
+}
 
 @media (max-width: 900px){
     #magnify {
