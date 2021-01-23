@@ -636,9 +636,9 @@ button:focus {
 }
 .device {
   overflow: hidden;
-  height: 75%;
+  height: 75%; 
   min-width: 100px;
-  padding: 0.6rem;
+  padding: 0.6rem; /* .device img.placeholder value */
   border-radius: 25px;
   box-shadow: 3px 3px 0 0 #bfbfc4, inset 0 0 8px 0 rgba(0, 0, 0, 0.3), 49px 30px 40px -10px rgba(0, 0, 0, 0.23);
   -webkit-transform: rotateX(17deg) rotateY(-17deg) rotateZ(13deg);
@@ -663,9 +663,9 @@ button:focus {
 
 .desktop {
   overflow: hidden;
-  height: 68%;
+  height: 68%; 
   min-width: 100px;
-  padding: 0.6rem;
+  padding: 0.6rem; /* .desktop img.placeholder value */
   border-radius: 25px;
   box-shadow: 3px 3px 0 0 #bfbfc4, inset 0 0 8px 0 rgba(0, 0, 0, 0.3), 35px 20px 40px -10px rgba(0, 0, 0, 0.23);*/
   -webkit-transform: rotateX(10deg) rotateY(-10deg) rotateZ(6deg);
@@ -682,6 +682,16 @@ button:focus {
   -webkit-transform: rotate(0deg) scale(1.05);
   -ms-transform: rotate(0deg) scale(1.05);
   transform: rotate(0deg) scale(1.05);
+}
+.device img.placeholder {
+	position: absolute; 
+	height: 94.5%;
+	z-index: -1;
+}
+.desktop img.placeholder {
+	position: absolute; 
+	height: 94.5%;
+	z-index: -1;
 }
 /*.desktop.shadow {
 	margin-top: 48%;
