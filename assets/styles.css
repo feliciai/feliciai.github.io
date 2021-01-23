@@ -21,6 +21,7 @@
     --font-bold: 'DM Sans Bold';
 }
 * {margin: 0; padding: 0;}
+
 body {
     font-family: var(--font-regular), 'Poppins', sans-serif;
     /*padding: 0px;*/
@@ -30,6 +31,7 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     
+	max-height: 6200px;
 }
 #wrapper {
     display: block;
@@ -41,7 +43,7 @@ body {
 }
 p {
     font-family: var(--font-regular), 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     padding-top: 1em;
 }
 canvas {
@@ -252,7 +254,7 @@ a:hover {
     font-size: 21px;
     font-family: var(--font-regular), 'Poppins', sans-serif;
     color: var(--primary-color);
-    background: #fff;
+    background: transparent; /*#fff;*/
     border: 3px solid var(--primary-color);
     padding: 8px 40px;
     /*width: 35%;*/
@@ -262,26 +264,27 @@ a:hover {
     transition: 0.4s ease-in-out;
     align-self: flex-start;
 }
-.alt .btn_one {
-    color: var(--secondary-color);
-    border: 3px solid var(--secondary-color);   
-}
 .btn_one:hover {
     box-shadow: 0px 10px 25px rgba(var(--primary-overlay), var(--overlay-opacity));
     cursor: pointer;
     color: #fff;
     background: var(--primary-color);
 }
+.alt .btn_one {
+    color: var(--secondary-color);
+    border: 3px solid var(--secondary-color);   
+}
 .alt .btn_one:hover {
+    color: #fff;
     box-shadow: 0px 10px 25px rgba(var(--secondary-overlay), var(--overlay-opacity));
     background: var(--secondary-color); 
 }
 .btn_inactive, .btn_inactive:hover {
-    background-color: var(--inactive-color);
-    border: 3px solid var(--inactive-color);
-    box-shadow: none;
-    color: var(--outline-color);
-	cursor: default;
+    background-color: var(--inactive-color) !important;
+    border: 3px solid var(--inactive-color) !important;
+    box-shadow: none !important;
+    color: var(--outline-color) !important;
+	cursor: default !important;
 }
 
 .subtle-subtitle {
@@ -326,7 +329,7 @@ a:hover {
     align-items: center;
     /*padding: 0 8% 0 0;*/
     
-    overflow-x: hidden;
+    overflow-x: hidden; /* also in .carousel */
 }
 .carousel-nav {
     display: inline-flex;
@@ -368,6 +371,7 @@ a:hover {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+	/*overflow: visible; /* also in .projectImage*/
     
     scrollbar-color: transparent transparent; /* thumb and track color */
     scrollbar-width: 0px;
@@ -658,7 +662,7 @@ button:focus {
 }
 
 
-@media (max-width: 1000px){
+@media (max-width: 900px){
     #magnify {
         top: 0px;
     }
@@ -740,7 +744,7 @@ button:focus {
         padding:6px 30px;
         font-size: 1em;
         /*width:60%;*/
-        margin: 30px auto 0 auto;
+        margin: 30px auto 10px auto;
         box-shadow:0px 10px 20px rgba(var(--primary-overlay), 0.8);
         background: var(--primary-color);
         color:#fff;
@@ -784,10 +788,15 @@ button:focus {
         margin-top: 0em;
     }
     .projectDesc {
+		width: 100%;
         text-align: left;
         margin-bottom: 3em;
         padding: 0 8% 30px 4vw;
     }
+	.projectImage {
+		width: 100%;
+		overflow-y: scroll;
+	}
     .carousel span {
         margin-top: -9em;
     }

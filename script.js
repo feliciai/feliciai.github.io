@@ -66,14 +66,14 @@ window.onscroll = function(){
 }
 
 $(document).ready( function() {
-    if (width >= 1000) {
+    /*if (width >= 1000) {
         init();
         animate();
     }
 		console.log(height);
 	if (height >= 1000) {
         $("canvas").css("display","none");
-	}
+	}*/
 })
 
 function magnify(imglink, caption=""){
@@ -109,10 +109,10 @@ $(document).ready(function(){
         event.preventDefault();
         var hash = this.hash;
         $('body,html').animate({
-        scrollTop: $(hash).offset().top
+        	scrollTop: $(hash).offset().top
         }, 800, function(){
-        window.location.hash = hash;
-       });
+        	window.location.hash = hash;
+        });
       } 
     });
 });
@@ -225,7 +225,7 @@ var specialBall = new Ball(canvas.width/2, canvas.height - 5*10, 0, 0, 10, "rgb(
 function init() {
 	ballArray = [];
 
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < 4; i++) {
 		var radius = 10;//randomIntFromRange(8, 20);
 		var x = gaussianRandom(radius, canvas.width - radius);//randomIntFromRange(radius, canvas.width - radius);
 		var y = randomIntFromRange(0, canvas.height - radius);
